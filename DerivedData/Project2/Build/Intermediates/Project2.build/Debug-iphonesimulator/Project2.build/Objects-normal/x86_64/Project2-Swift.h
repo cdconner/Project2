@@ -153,6 +153,7 @@ SWIFT_CLASS("_TtC8Project211AppDelegate")
 @end
 
 @class UIButton;
+@class UIAlertAction;
 @class NSBundle;
 @class NSCoder;
 
@@ -165,7 +166,8 @@ SWIFT_CLASS("_TtC8Project214ViewController")
 @property (nonatomic) NSInteger correctAnswer;
 @property (nonatomic) NSInteger score;
 - (void)viewDidLoad;
-- (void)askQuestion;
+- (void)askQuestionWithAction:(UIAlertAction * _Null_unspecified)action;
+- (IBAction)buttonTapped:(UIButton * _Nonnull)sender;
 - (void)didReceiveMemoryWarning;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;

@@ -50,7 +50,7 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
     
-    func askQuestion() {
+    func askQuestion(action: UIAlertAction! = nil) {
         
         countries = GKRandomSource.sharedRandom().arrayByShufflingObjects(in: countries) as! [String]
         
@@ -61,6 +61,22 @@ class ViewController: UIViewController {
         correctAnswer = GKRandomSource.sharedRandom().nextInt(upperBound: 3)
         title = countries[correctAnswer].uppercased()
     }
+    
+    @IBAction func buttonTapped(_ sender: UIButton) {
+        var title: String
+        if sender.tag == correctAnswer {
+            title = "Correct"
+            score += 1
+        } else {
+            title = "Wrong"
+            score -= 1
+        }
+        
+        let ac = UIAlertController(title: title, message: "Your score is \(score).", preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "Continue", style: .default, handler: askQuestion))
+        present(ac, animated: true)
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
